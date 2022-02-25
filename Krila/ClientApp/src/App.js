@@ -5,6 +5,7 @@ import { FetchData } from './components/FetchData';
 
 import './custom.css'
 import NavMenu from './components/NavMenu';
+import Footer from './components/Footer';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -15,6 +16,7 @@ export default class App extends Component {
       <NavMenu/>
         <Route exact path='/' component={Home} />
         <Route path='/fetch-data' component={FetchData} />
+        <Footer/>
       </>
     );
   }
