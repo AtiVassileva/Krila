@@ -10,14 +10,14 @@ const Footer = () => {
                             <div className="text-widget">
                                 <div className="wid-title">KRILA</div>
                                 <p>
-                                    Крила е онлайн магазин с оригинални и актуални за времето стоки на достъпна цена. <a href="">Пазарувай сега</a>
+                                    Крила е онлайн магазин с оригинални и актуални за времето стоки на достъпна цена. <Link to="">Пазарувай сега</Link>
                                 </p>
                                 <ul className="ft-soc clearfix">
-                                    <li><a href=""><i className="fa fa-facebook-square"></i></a></li>
-                                    <li><a href=""><i className="fa fa-twitter"></i></a></li>
-                                    <li><a href=""><i className="fa fa-google-plus-square"></i></a></li>
-                                    <li><a href=""><i className="fa fa-instagram"></i></a></li>
-                                    <li><a href=""><i className="fa fa-pinterest"></i></a></li>
+                                    <li><Link to=""><i className="fa fa-facebook-square"></i></Link></li>
+                                    <li><Link to=""><i className="fa fa-twitter"></i></Link></li>
+                                    <li><Link to=""><i className="fa fa-google-plus-square"></i></Link></li>
+                                    <li><Link to=""><i className="fa fa-instagram"></i></Link></li>
+                                    <li><Link to=""><i className="fa fa-pinterest"></i></Link></li>
                                 </ul>
                                 <div className="clearfix"></div>
                             </div>
@@ -39,10 +39,10 @@ const Footer = () => {
                             <div className="term">
                                 <div className="wid-title">&nbsp;</div>
                                 <p>
-                                    <a href="#">Доставка</a><br />
-                                    <a href="#">Условия за ползване</a><br />
-                                    <a href="#">Връщане и замяна</a><br />
-                                    <a href="#">Legal Desclaimer</a><br />
+                                    <Link to="#">Доставка</Link><br />
+                                    <Link to="#">Условия за ползване</Link><br />
+                                    <Link to="#">Връщане и замяна</Link><br />
+                                    <Link to="#">Legal Desclaimer</Link><br />
                                 </p>
                             </div>
                         </div>
@@ -65,7 +65,7 @@ const Footer = () => {
             </div>
             <div className="footer-text">
                 <div className="container">
-                    <p>Copyright 2018. Designed and Developed by <a href="https://bootstrapmart.com/">BootstrapMart </a> &amp; Distributed by <a href="https://themewagon.com/">ThemeWagon</a></p>
+                    <p>Copyright 2018. Designed and Developed by <Link to="https://bootstrapmart.com/">BootstrapMart </Link> &amp; Distributed by <Link to="https://themewagon.com/">ThemeWagon</Link></p>
                 </div>
             </div>
         </div>
