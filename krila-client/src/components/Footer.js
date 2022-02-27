@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
     return (
         <div id="footer">
@@ -24,12 +26,12 @@ const Footer = () => {
                             <div className="quick-links">
                                 <div className="wid-title">Бързи линкове</div>
                                 <ul>
-                                    <li><a href="/men">Мъже</a></li>
-                                    <li><a href="/women">Жени</a></li>
-                                    <li><a href="/kids">Деца</a></li>
-                                    <li><a href="/about">За нас</a></li>
-                                    <li><a href="/contacts">Контакти</a></li>
-                                    <li><a href="/faq">Често задавани въпроси</a></li>
+                                    <li><Link to="/men">Мъже</Link></li>
+                                    <li><Link to="/women">Жени</Link></li>
+                                    <li><Link to="/kids">Деца</Link></li>
+                                    <li><Link to="/about">За нас</Link></li>
+                                    <li><Link to="/contacts">Контакти</Link></li>
+                                    <li><Link to="/faq">Често задавани въпроси</Link></li>
                                 </ul>
                             </div>
                         </div>
