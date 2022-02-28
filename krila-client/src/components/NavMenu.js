@@ -4,10 +4,14 @@ import * as categoryService from './../services/categoryService';
 
 const NavMenu = () => {
     const [menCategories, setMenCategories] = useState([]);
+    const [womenCategories, setWomenCategories] = useState([]);
 
     useEffect(() => {
         categoryService.getMenCategories()
             .then(result => setMenCategories(result));
+
+        categoryService.getWomenCategories()
+            .then(result => setWomenCategories(result));
 
     }, []);
     return (
@@ -82,7 +86,7 @@ const NavMenu = () => {
                             <i className="fa fa-angle-down text-dark"></i>
                         </a>
                         <nav className="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
-                            <div className="navbar-nav w-100 overflow-hidden" style={{ height: "500px" }}>
+                            <div className="navbar-nav w-100 overflow-hidden" style={{ height: "610px" }}>
                                 <div className="nav-item dropdown">
                                     <Link to="#" className="nav-link" data-toggle="dropdown">Мъже <i className="fa fa-angle-down float-right mt-1"></i></Link>
                                     <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
@@ -98,9 +102,13 @@ const NavMenu = () => {
                                 <div className="nav-item dropdown">
                                     <Link to="#" className="nav-link" data-toggle="dropdown">Жени <i className="fa fa-angle-down float-right mt-1"></i></Link>
                                     <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                        <Link to="" className="dropdown-item">Men's Dresses</Link>
-                                        <Link to="" className="dropdown-item">Women's Dresses</Link>
-                                        <Link to="" className="dropdown-item">Baby's Dresses</Link>
+                                    {
+                                            womenCategories
+                                                .map(x =>
+                                                    <Link to="" key={x.id} className="dropdown-item">{x.name}
+                                                    </Link>
+                                                )
+                                        }
                                     </div>
                                 </div>
                                 <div className="nav-item dropdown">

@@ -19,3 +19,16 @@ export async function getAdultMenId() {
 
     return adultMenId;
 }
+
+export async function getAdultWomenId() {
+    const response = await fetch(baseUrl);
+    let result = await response.json();
+
+    let adultWomenId =
+        result
+            .find(x => x.name === "Жена" &&
+                x.ageGroupId === adultsAgeGroupId)
+            .id;
+
+    return adultWomenId;
+}
