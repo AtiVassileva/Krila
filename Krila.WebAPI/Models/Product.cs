@@ -38,7 +38,7 @@ namespace Krila.WebAPI.Models
         public Guid GenderId { get; set; }
 
         public Gender Gender { get; set; }
-
+        
         public HashSet<Size> AvailableSizes { get; set; }
     }
 }

@@ -19,6 +19,22 @@ namespace Krila.WebAPI.Migrations
                 .HasAnnotation("ProductVersion", "5.0.14")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Krila.WebAPI.Models.AgeGroup", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AgeGroups");
+                });
+
             modelBuilder.Entity("Krila.WebAPI.Models.Category", b =>
                 {
                     b.Property<Guid>("Id")
@@ -46,12 +62,17 @@ namespace Krila.WebAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("AgeGroupId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AgeGroupId");
 
                     b.ToTable("Genders");
                 });
@@ -160,6 +181,17 @@ namespace Krila.WebAPI.Migrations
                         .IsRequired();
 
                     b.Navigation("Gender");
+                });
+
+            modelBuilder.Entity("Krila.WebAPI.Models.Gender", b =>
+                {
+                    b.HasOne("Krila.WebAPI.Models.AgeGroup", "AgeGroup")
+                        .WithMany()
+                        .HasForeignKey("AgeGroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AgeGroup");
                 });
 
             modelBuilder.Entity("Krila.WebAPI.Models.Order", b =>

@@ -20,6 +20,8 @@ namespace Krila.WebAPI.Data
 
         public DbSet<OrderStatus> OrdersStatuses { get; set; }
 
+        public DbSet<AgeGroup> AgeGroups { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

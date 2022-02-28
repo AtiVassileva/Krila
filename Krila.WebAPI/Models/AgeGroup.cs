@@ -6,7 +6,7 @@ namespace Krila.WebAPI.Models
 {
     using static DataConstants;
 
-    public class Gender
+    public class AgeGroup
     {
         [Key]
         [Required]
@@ -15,10 +15,5 @@ namespace Krila.WebAPI.Models
         [Required]
         [MaxLength(NameMaxLength)]
         public string Name { get; set; }
-
-        [Required]
-        public Guid AgeGroupId { get; set; }
-
-        public AgeGroup AgeGroup { get; set; }
     }
 }
