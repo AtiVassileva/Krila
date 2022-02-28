@@ -7,17 +7,17 @@ const NavMenu = () => {
         <div className="row bg-secondary py-2 px-xl-5">
             <div className="col-lg-6 d-none d-lg-block">
                 <div className="d-inline-flex align-items-center">
-                    <Link className="text-dark" to="">FAQs</Link>
+                    <Link className="text-dark" to="">Често задавани въпроси</Link>
                     <span className="text-muted px-2">|</span>
-                    <Link className="text-dark" to="">Help</Link>
+                    <Link className="text-dark" to="">Доставка</Link>
                     <span className="text-muted px-2">|</span>
-                    <Link className="text-dark" to="">Support</Link>
+                    <Link className="text-dark" to="">Контакти</Link>
                 </div>
             </div>
             <div className="col-lg-6 text-center text-lg-right">
                 <div className="d-inline-flex align-items-center">
                     <Link className="text-dark px-2" to="">
-                        <i className="fab fa-facebook-f"></i>
+                        <i className="fab s-facebook-f"></i>
                     </Link>
                     <Link className="text-dark px-2" to="">
                         <i className="fab fa-twitter"></i>
@@ -37,13 +37,13 @@ const NavMenu = () => {
         <div className="row align-items-center py-3 px-xl-5">
             <div className="col-lg-3 d-none d-lg-block">
                 <Link to="" className="text-decoration-none">
-                    <h1 className="m-0 display-5 font-weight-semi-bold"><span className="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+                    <h1 className="m-0 display-5 font-weight-semi-bold"><span className="text-primary font-weight-bold border px-3 mr-1">К</span>РИЛА</h1>
                 </Link>
             </div>
             <div className="col-lg-6 col-6 text-left">
                 <form action="">
                     <div className="input-group">
-                        <input type="text" className="form-control" placeholder="Search for products"/>
+                        <input type="text" className="form-control" placeholder="Потърси продукт..."/>
                         <div className="input-group-append">
                             <span className="input-group-text bg-transparent text-primary">
                                 <i className="fa fa-search"></i>
@@ -69,13 +69,29 @@ const NavMenu = () => {
         <div className="row border-top px-xl-5">
             <div className="col-lg-3 d-none d-lg-block">
                 <a className="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style={{height: "65px", marginTop: "-1px", padding: "0 30px"}}>
-                    <h6 className="m-0">Categories</h6>
+                    <h6 className="m-0">Продукти</h6>
                     <i className="fa fa-angle-down text-dark"></i>
                 </a>
                 <nav className="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
                     <div className="navbar-nav w-100 overflow-hidden" style={{height:"410px"}}>
                         <div className="nav-item dropdown">
-                            <Link to="#" className="nav-link" data-toggle="dropdown">Dresses <i className="fa fa-angle-down float-right mt-1"></i></Link>
+                            <Link to="#" className="nav-link" data-toggle="dropdown">Мъже <i className="fa fa-angle-down float-right mt-1"></i></Link>
+                            <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                                <Link to="" className="dropdown-item">Men's Dresses</Link>
+                                <Link to="" className="dropdown-item">Women's Dresses</Link>
+                                <Link to="" className="dropdown-item">Baby's Dresses</Link>
+                            </div>
+                        </div>
+                        <div className="nav-item dropdown">
+                            <Link to="#" className="nav-link" data-toggle="dropdown">Жени <i className="fa fa-angle-down float-right mt-1"></i></Link>
+                            <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                                <Link to="" className="dropdown-item">Men's Dresses</Link>
+                                <Link to="" className="dropdown-item">Women's Dresses</Link>
+                                <Link to="" className="dropdown-item">Baby's Dresses</Link>
+                            </div>
+                        </div>
+                        <div className="nav-item dropdown">
+                            <Link to="#" className="nav-link" data-toggle="dropdown">Деца <i className="fa fa-angle-down float-right mt-1"></i></Link>
                             <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
                                 <Link to="" className="dropdown-item">Men's Dresses</Link>
                                 <Link to="" className="dropdown-item">Women's Dresses</Link>
@@ -83,14 +99,6 @@ const NavMenu = () => {
                             </div>
                         </div>
                         <Link to="/" className="nav-item nav-link">Shirts</Link>
-                        <Link to="/" className="nav-item nav-link">Jeans</Link>
-                        <Link to="/" className="nav-item nav-link">Swimwear</Link>
-                        <Link to="/" className="nav-item nav-link">Sleepwear</Link>
-                        <Link to="/" className="nav-item nav-link">Sportswear</Link>
-                        <Link to="/" className="nav-item nav-link">Jumpsuits</Link>
-                        <Link to="/" className="nav-item nav-link">Blazers</Link>
-                        <Link to="/" className="nav-item nav-link">Jackets</Link>
-                        <Link to="/" className="nav-item nav-link">Shoes</Link>
                     </div>
                 </nav>
             </div>
@@ -105,20 +113,22 @@ const NavMenu = () => {
                     <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div className="navbar-nav mr-auto py-0">
                             <Link to="/" className="nav-item nav-link active">Home</Link>
-                            <Link to="/" className="nav-item nav-link">Shop</Link>
-                            <Link to="/" className="nav-item nav-link">Shop Detail</Link>
+                            <Link to="/" className="nav-item nav-link">Ново</Link>
+                            <Link to="/about" className="nav-item nav-link">За нас</Link>
                             <div className="nav-item dropdown">
-                                <Link to="/" className="nav-link dropdown-toggle" data-toggle="dropdown">Pages</Link>
+                                <Link to="/" className="nav-link dropdown-toggle" data-toggle="dropdown">Продукти</Link>
                                 <div className="dropdown-menu rounded-0 m-0">
-                                    <Link to="cart.html" className="dropdown-item">Shopping Cart</Link>
-                                    <Link to="checkout.html" className="dropdown-item">Checkout</Link>
+                                    <Link to="cart.html" className="dropdown-item">Мъже</Link>
+                                    <Link to="checkout.html" className="dropdown-item">Жени</Link>
+                                    <Link to="checkout.html" className="dropdown-item">Деца</Link>
+                                    <Link to="checkout.html" className="dropdown-item">Бебета</Link>
                                 </div>
                             </div>
-                            <Link to="contact.html" className="nav-item nav-link">Contact</Link>
+                            <Link to="/contacts" className="nav-item nav-link">Контакти</Link>
                         </div>
                         <div className="navbar-nav ml-auto py-0">
-                            <Link to="/" className="nav-item nav-link">Login</Link>
-                            <Link to="/" className="nav-item nav-link">Register</Link>
+                            <Link to="/" className="nav-item nav-link">Вход</Link>
+                            <Link to="/" className="nav-item nav-link">Регистрация</Link>
                         </div>
                     </div>
                 </nav>
@@ -129,9 +139,9 @@ const NavMenu = () => {
                             src="img/carousel-1.jpg" alt=""/>
                             <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div className="p-3" style={{maxWidth:"700px"}}>
-                                    <h4 className="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
-                                    <h3 className="display-4 text-white font-weight-semi-bold mb-4">Fashionable Dress</h3>
-                                    <Link to="" className="btn btn-light py-2 px-3">Shop Now</Link>
+                                    <h4 className="text-light text-uppercase font-weight-medium mb-3">КРИЛА</h4>
+                                    <h3 className="display-4 text-white font-weight-semi-bold mb-4">Новият моден лидер</h3>
+                                    <Link to="" className="btn btn-light py-2 px-3">Пазарувай сега!</Link>
                                 </div>
                             </div>
                         </div>

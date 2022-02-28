@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Krila.WebAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Krila.WebAPI.Data
 {
@@ -9,7 +10,16 @@ namespace Krila.WebAPI.Data
         {
         }
 
-        // Db sets here
+        public DbSet<Product> Products { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Gender> Genders { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderStatus> OrdersStatuses { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

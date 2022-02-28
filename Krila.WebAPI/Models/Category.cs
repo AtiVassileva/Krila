@@ -15,5 +15,10 @@ namespace Krila.WebAPI.Models
         [Required]
         [MaxLength(NameMaxLength)]
         public string Name { get; set; }
+
+        [Required]
+        public Guid GenderId { get; set; }
+
+        public Gender Gender { get; set; }
     }
 }

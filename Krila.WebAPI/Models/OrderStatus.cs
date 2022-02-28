@@ -5,6 +5,7 @@ using Krila.WebAPI.Models.Common;
 namespace Krila.WebAPI.Models
 {
     using static DataConstants;
+
     public class OrderStatus
     {
         [Key]
