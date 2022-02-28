@@ -91,14 +91,37 @@ const NavMenu = () => {
                             </div>
                         </div>
                         <div className="nav-item dropdown">
-                            <Link to="#" className="nav-link" data-toggle="dropdown">Деца <i className="fa fa-angle-down float-right mt-1"></i></Link>
+                            <Link to="#" className="nav-link" data-toggle="dropdown">Момчета <i className="fa fa-angle-down float-right mt-1"></i></Link>
                             <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
                                 <Link to="" className="dropdown-item">Men's Dresses</Link>
                                 <Link to="" className="dropdown-item">Women's Dresses</Link>
                                 <Link to="" className="dropdown-item">Baby's Dresses</Link>
                             </div>
                         </div>
-                        <Link to="/" className="nav-item nav-link">Shirts</Link>
+                        <div className="nav-item dropdown">
+                            <Link to="#" className="nav-link" data-toggle="dropdown">Момичета <i className="fa fa-angle-down float-right mt-1"></i></Link>
+                            <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                                <Link to="" className="dropdown-item">Men's Dresses</Link>
+                                <Link to="" className="dropdown-item">Women's Dresses</Link>
+                                <Link to="" className="dropdown-item">Baby's Dresses</Link>
+                            </div>
+                        </div>
+                        <div className="nav-item dropdown">
+                            <Link to="#" className="nav-link" data-toggle="dropdown">Бебета момчета <i className="fa fa-angle-down float-right mt-1"></i></Link>
+                            <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                                <Link to="" className="dropdown-item">Men's Dresses</Link>
+                                <Link to="" className="dropdown-item">Women's Dresses</Link>
+                                <Link to="" className="dropdown-item">Baby's Dresses</Link>
+                            </div>
+                        </div>
+                        <div className="nav-item dropdown">
+                            <Link to="#" className="nav-link" data-toggle="dropdown">Бебета момичета <i className="fa fa-angle-down float-right mt-1"></i></Link>
+                            <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
+                                <Link to="" className="dropdown-item">Men's Dresses</Link>
+                                <Link to="" className="dropdown-item">Women's Dresses</Link>
+                                <Link to="" className="dropdown-item">Baby's Dresses</Link>
+                            </div>
+                        </div>
                     </div>
                 </nav>
             </div>
@@ -120,8 +143,10 @@ const NavMenu = () => {
                                 <div className="dropdown-menu rounded-0 m-0">
                                     <Link to="cart.html" className="dropdown-item">Мъже</Link>
                                     <Link to="checkout.html" className="dropdown-item">Жени</Link>
-                                    <Link to="checkout.html" className="dropdown-item">Деца</Link>
-                                    <Link to="checkout.html" className="dropdown-item">Бебета</Link>
+                                    <Link to="checkout.html" className="dropdown-item">Момчета</Link>
+                                    <Link to="checkout.html" className="dropdown-item">Момичета</Link>
+                                    <Link to="checkout.html" className="dropdown-item">Бебета момчета</Link>
+                                    <Link to="checkout.html" className="dropdown-item">Бебета момичета</Link>
                                 </div>
                             </div>
                             <Link to="/contacts" className="nav-item nav-link">Контакти</Link>
