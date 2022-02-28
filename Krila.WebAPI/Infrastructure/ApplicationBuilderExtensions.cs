@@ -20,7 +20,9 @@ namespace Krila.WebAPI.Infrastructure
 
             MigrateDatabase(serviceProvider);
 
+            SeedAgeGroups(serviceProvider);
             SeedGenders(serviceProvider);
+            SeedCategories(serviceProvider);
 
             return app;
         }
@@ -33,6 +35,26 @@ namespace Krila.WebAPI.Infrastructure
             dbContext.Database.Migrate();
         }
 
+        private static void SeedAgeGroups(IServiceProvider serviceProvider)
+        {
+            var dbContext = serviceProvider
+                .GetRequiredService<ApplicationDbContext>();
+
+            if (dbContext.AgeGroup.Any())
+            {
+                return;
+            }
+
+            dbContext.AgeGroup.AddRange(new []
+            {
+                new AgeGroup {Name = "Бебе"},
+                new AgeGroup {Name = "Дете"},
+                new AgeGroup {Name = "Възрастен"}
+            });
+
+            dbContext.SaveChanges();
+        }
+
         private static void SeedGenders(IServiceProvider serviceProvider)
         {
             var dbContext = serviceProvider
@@ -43,14 +65,30 @@ namespace Krila.WebAPI.Infrastructure
                 return;
             }
 
+            var adultGroupId = dbContext.AgeGroup
+                .Where(ag => ag.Name == "Възрастен")
+                .Select(ag => ag.Id)
+                .FirstOrDefault();
+
+            var kidGroupId = dbContext.AgeGroup
+                .Where(ag => ag.Name == "Дете")
+                .Select(ag => ag.Id)
+                .FirstOrDefault();
+            
+            var babyGroupId = dbContext.AgeGroup
+                .Where(ag => ag.Name == "Бебе")
+                .Select(ag => ag.Id)
+                .FirstOrDefault();
+
             dbContext.Genders.AddRange(new[]
             {
-                new Gender  {Name = "Мъж"},
-                new Gender  {Name = "Жена"},
-                new Gender  {Name = "Момче"},
-                new Gender  {Name = "Момиче"},
-                new Gender  {Name = "Бебе момче"},
-                new Gender  {Name = "Бебе момиче"},
+                new Gender  {Name = "Мъж", AgeGroupId = adultGroupId},
+                new Gender  {Name = "Жена", AgeGroupId = adultGroupId},
+                new Gender  {Name = "Мъж", AgeGroupId = kidGroupId},
+                new Gender  {Name = "Жена", AgeGroupId = kidGroupId},
+                new Gender  {Name = "Мъж", AgeGroupId = babyGroupId},
+                new Gender  {Name = "Жена", AgeGroupId = babyGroupId},
+                
             });
 
             dbContext.SaveChanges();
