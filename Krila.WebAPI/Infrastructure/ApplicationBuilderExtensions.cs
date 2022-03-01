@@ -65,20 +65,9 @@ namespace Krila.WebAPI.Infrastructure
                 return;
             }
 
-            var adultGroupId = dbContext.AgeGroup
-                .Where(ag => ag.Name == "Възрастен")
-                .Select(ag => ag.Id)
-                .FirstOrDefault();
-
-            var kidGroupId = dbContext.AgeGroup
-                .Where(ag => ag.Name == "Дете")
-                .Select(ag => ag.Id)
-                .FirstOrDefault();
-            
-            var babyGroupId = dbContext.AgeGroup
-                .Where(ag => ag.Name == "Бебе")
-                .Select(ag => ag.Id)
-                .FirstOrDefault();
+            var adultGroupId = GetAgeGroupId(dbContext, "Възрастен");
+            var kidGroupId = GetAgeGroupId(dbContext, "Дете");
+            var babyGroupId = GetAgeGroupId(dbContext, "Бебе");
 
             dbContext.Genders.AddRange(new[]
             {
@@ -107,13 +96,25 @@ namespace Krila.WebAPI.Infrastructure
             SeedManCategories(dbContext);
             SeedWomanCategories(dbContext);
 
+            SeedBoyCategories(dbContext);
+            SeedGirlCategories(dbContext);
+
+            SeedBabyBoyCategories(dbContext);
+            SeedBabyGirlCategories(dbContext);
+
             dbContext.SaveChanges();
         }
 
         private static void SeedManCategories(ApplicationDbContext dbContext)
         {
+            var adultGroupId = dbContext.AgeGroup
+                .Where(ag => ag.Name == "Възрастен")
+                .Select(ag => ag.Id)
+                .FirstOrDefault();
+
             var manGenderId = dbContext.Genders
-                .Where(g => g.Name == "Мъж")
+                .Where(g => g.Name == "Мъж" && 
+                            g.AgeGroupId == adultGroupId)
                 .Select(g => g.Id)
                 .FirstOrDefault();
 
@@ -136,8 +137,14 @@ namespace Krila.WebAPI.Infrastructure
 
         private static void SeedWomanCategories(ApplicationDbContext dbContext)
         {
+            var adultGroupId = dbContext.AgeGroup
+                .Where(ag => ag.Name == "Възрастен")
+                .Select(ag => ag.Id)
+                .FirstOrDefault();
+
             var womanGenderId = dbContext.Genders
-                .Where(g => g.Name == "Жена")
+                .Where(g => g.Name == "Жена" 
+                            && g.AgeGroupId == adultGroupId)
                 .Select(g => g.Id)
                 .FirstOrDefault();
 
@@ -161,5 +168,79 @@ namespace Krila.WebAPI.Infrastructure
                 new Category{GenderId = womanGenderId, Name = "Дрехи за бременни"},
             });
         }
+
+        private static void SeedBoyCategories(ApplicationDbContext dbContext)
+        {
+            var kidGroupId = GetAgeGroupId(dbContext, "Дете");
+
+            var boyGenderId = dbContext.Genders
+                .Where(g => g.Name == "Мъж"
+                            && g.AgeGroupId == kidGroupId)
+                .Select(g => g.Id)
+                .FirstOrDefault();
+
+            var boyCategories = GetKidBabyCategories(boyGenderId);
+
+            dbContext.Categories.AddRange(boyCategories);
+        }
+
+        private static void SeedGirlCategories(ApplicationDbContext dbContext)
+        {
+            var kidGroupId = GetAgeGroupId(dbContext, "Дете");
+
+            var girlGenderId = dbContext.Genders
+                .Where(g => g.Name == "Жена"
+                            && g.AgeGroupId == kidGroupId)
+                .Select(g => g.Id)
+                .FirstOrDefault();
+
+            var girlCategories = GetKidBabyCategories(girlGenderId);
+
+            dbContext.Categories.AddRange(girlCategories);
+        }
+
+        private static void SeedBabyBoyCategories(ApplicationDbContext dbContext)
+        {
+            var babyGroupId = GetAgeGroupId(dbContext, "Бебе");
+
+            var babyBoyGenderId = dbContext.Genders
+                .Where(g => g.Name == "Мъж"
+                            && g.AgeGroupId == babyGroupId)
+                .Select(g => g.Id)
+                .FirstOrDefault();
+
+            var babyBoyCategories = GetKidBabyCategories(babyBoyGenderId);
+
+            dbContext.Categories.AddRange(babyBoyCategories);
+        }
+
+        private static void SeedBabyGirlCategories(ApplicationDbContext dbContext)
+        {
+            var babyGroupId = GetAgeGroupId(dbContext, "Бебе");
+
+            var babyGirlGenderId = dbContext.Genders
+                .Where(g => g.Name == "Жена"
+                            && g.AgeGroupId == babyGroupId)
+                .Select(g => g.Id)
+                .FirstOrDefault();
+
+            var babyGirlCategories = GetKidBabyCategories(babyGirlGenderId);
+
+            dbContext.Categories.AddRange(babyGirlCategories);
+        }
+
+        private static Guid GetAgeGroupId(ApplicationDbContext dbContext, string ageGroupName)
+            => dbContext.AgeGroup
+                .Where(ag => ag.Name == ageGroupName)
+                .Select(ag => ag.Id)
+                .FirstOrDefault();
+
+        private static Category[] GetKidBabyCategories(Guid genderId) => new[]
+        {
+            new Category { GenderId = genderId, Name = "Дрехи" },
+            new Category { GenderId = genderId, Name = "Връхни дрехи" },
+            new Category { GenderId = genderId, Name = "Аксесоари" },
+            new Category { GenderId = genderId, Name = "Празнични костюми" },
+        };
     }
 }
