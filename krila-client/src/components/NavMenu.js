@@ -201,8 +201,8 @@ const NavMenu = () => {
                                         src="img/carousel-1.jpg" alt="" />
                                     <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                         <div className="p-3" style={{ maxWidth: "700px" }}>
-                                            <h4 className="text-light text-uppercase font-weight-medium mb-3">КРИЛА</h4>
-                                            <h3 className="display-4 text-white font-weight-semi-bold mb-4">Новият моден лидер</h3>
+                                            <h3 className=" text-light display-4 text-white font-weight-bold mb-3 ">К Р И Л А</h3>
+                                            <h2 className="text-light text-uppercase font-weight-light mb-3">Новият моден лидер</h2>
                                             <Link to="" className="btn btn-light py-2 px-3">Пазарувай сега!</Link>
                                         </div>
                                     </div>
