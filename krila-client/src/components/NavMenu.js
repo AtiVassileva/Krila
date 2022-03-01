@@ -5,6 +5,8 @@ import * as categoryService from './../services/categoryService';
 const NavMenu = () => {
     const [menCategories, setMenCategories] = useState([]);
     const [womenCategories, setWomenCategories] = useState([]);
+    const [boysCategories, setBoysCategories] = useState([]);
+    const [girlsCategories, setGirlsCategories] = useState([]);
 
     useEffect(() => {
         categoryService.getMenCategories()
@@ -12,6 +14,12 @@ const NavMenu = () => {
 
         categoryService.getWomenCategories()
             .then(result => setWomenCategories(result));
+
+        categoryService.getBoysCategories()
+            .then(result => setBoysCategories(result));
+
+        categoryService.getGirlsCategories()
+            .then(result => setGirlsCategories(result));
 
     }, []);
     return (
@@ -102,7 +110,7 @@ const NavMenu = () => {
                                 <div className="nav-item dropdown">
                                     <Link to="#" className="nav-link" data-toggle="dropdown">Жени <i className="fa fa-angle-down float-right mt-1"></i></Link>
                                     <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                    {
+                                        {
                                             womenCategories
                                                 .map(x =>
                                                     <Link to="" key={x.id} className="dropdown-item">{x.name}
@@ -114,17 +122,25 @@ const NavMenu = () => {
                                 <div className="nav-item dropdown">
                                     <Link to="#" className="nav-link" data-toggle="dropdown">Момчета <i className="fa fa-angle-down float-right mt-1"></i></Link>
                                     <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                        <Link to="" className="dropdown-item">Men's Dresses</Link>
-                                        <Link to="" className="dropdown-item">Women's Dresses</Link>
-                                        <Link to="" className="dropdown-item">Baby's Dresses</Link>
+                                        {
+                                            boysCategories
+                                                .map(x =>
+                                                    <Link to="" key={x.id} className="dropdown-item">{x.name}
+                                                    </Link>
+                                                )
+                                        }
                                     </div>
                                 </div>
                                 <div className="nav-item dropdown">
                                     <Link to="#" className="nav-link" data-toggle="dropdown">Момичета <i className="fa fa-angle-down float-right mt-1"></i></Link>
                                     <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                        <Link to="" className="dropdown-item">Men's Dresses</Link>
-                                        <Link to="" className="dropdown-item">Women's Dresses</Link>
-                                        <Link to="" className="dropdown-item">Baby's Dresses</Link>
+                                        {
+                                            girlsCategories
+                                                .map(x =>
+                                                    <Link to="" key={x.id} className="dropdown-item">{x.name}
+                                                    </Link>
+                                                )
+                                        }
                                     </div>
                                 </div>
                                 <div className="nav-item dropdown">
