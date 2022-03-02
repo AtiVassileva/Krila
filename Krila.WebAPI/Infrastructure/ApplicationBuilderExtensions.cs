@@ -96,11 +96,11 @@ namespace Krila.WebAPI.Infrastructure
             //SeedManCategories(dbContext);
             //SeedWomanCategories(dbContext);
 
-            SeedBoyCategories(dbContext);
+            // SeedBoyCategories(dbContext);
             //SeedGirlCategories(dbContext);
 
-            //SeedBabyBoyCategories(dbContext);
-            //SeedBabyGirlCategories(dbContext);
+            SeedBabyBoyCategories(dbContext);
+            SeedBabyGirlCategories(dbContext);
 
             dbContext.SaveChanges();
         }
@@ -227,9 +227,20 @@ namespace Krila.WebAPI.Infrastructure
                 .Select(g => g.Id)
                 .FirstOrDefault();
 
-            var babyBoyCategories = GetKidBabyCategories(babyBoyGenderId);
-
-            dbContext.Categories.AddRange(babyBoyCategories);
+            dbContext.Categories.AddRange(new []
+            {
+                new Category {Name = "Комплекти и облекла", GenderId = babyBoyGenderId},
+                new Category {Name = "Тениски и потници", GenderId = babyBoyGenderId},
+                new Category {Name = "Пуловери", GenderId = babyBoyGenderId},
+                new Category {Name = "Панталони и дънки", GenderId = babyBoyGenderId},
+                new Category {Name = "Бодита", GenderId = babyBoyGenderId},
+                new Category {Name = "Гащеризони", GenderId = babyBoyGenderId},
+                new Category {Name = "Къси панталони", GenderId = babyBoyGenderId},
+                new Category {Name = "Спално облекло", GenderId = babyBoyGenderId},
+                new Category {Name = "Бельо", GenderId = babyBoyGenderId},
+                new Category {Name = "Празнични костюми", GenderId = babyBoyGenderId},
+                new Category {Name = "Аксесоари", GenderId = babyBoyGenderId},
+            });
         }
 
         private static void SeedBabyGirlCategories(ApplicationDbContext dbContext)
@@ -244,7 +255,20 @@ namespace Krila.WebAPI.Infrastructure
 
             var babyGirlCategories = GetKidBabyCategories(babyGirlGenderId);
 
-            dbContext.Categories.AddRange(babyGirlCategories);
+            dbContext.Categories.AddRange(new []
+            {
+                new Category {Name="Рокли", GenderId = babyGirlGenderId},
+                new Category {Name="Комплекти и облекла", GenderId = babyGirlGenderId},
+                new Category {Name="Топове и тениски", GenderId = babyGirlGenderId},
+                new Category {Name="Пуловери и жилетки", GenderId = babyGirlGenderId},
+                new Category {Name="Панталони и дънки", GenderId = babyGirlGenderId},
+                new Category {Name="Бодита", GenderId = babyGirlGenderId},
+                new Category {Name="Гащеризони", GenderId = babyGirlGenderId},
+                new Category {Name="Къси панталони", GenderId = babyGirlGenderId},
+                new Category {Name="Спално облекло", GenderId = babyGirlGenderId},
+                new Category {Name="Празнични костюми", GenderId = babyGirlGenderId},
+                new Category {Name="Аксесоари", GenderId = babyGirlGenderId},
+            });
         }
 
         private static Guid GetAgeGroupId(ApplicationDbContext dbContext, string ageGroupName)

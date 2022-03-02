@@ -7,6 +7,8 @@ const NavMenu = () => {
     const [womenCategories, setWomenCategories] = useState([]);
     const [boysCategories, setBoysCategories] = useState([]);
     const [girlsCategories, setGirlsCategories] = useState([]);
+    const [babyBoyCategories, setBabyBoyCategories] = useState([]);
+    const [babyGirlCategories, setBabyGirlCategories] = useState([]);
 
     useEffect(() => {
         categoryService.getMenCategories()
@@ -20,6 +22,12 @@ const NavMenu = () => {
 
         categoryService.getGirlsCategories()
             .then(result => setGirlsCategories(result));
+
+        categoryService.getBabyBoysCategories()
+            .then(result => setBabyBoyCategories(result));
+
+        categoryService.getBabyGirlCategories()
+            .then(result => setBabyGirlCategories(result));
 
     }, []);
     return (
@@ -94,7 +102,7 @@ const NavMenu = () => {
                             <i className="fa fa-angle-down text-dark"></i>
                         </a>
                         <nav className="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
-                            <div className="navbar-nav w-100 overflow-hidden" style={{ height: "610px" }}>
+                            <div className="navbar-nav w-100" style={{ height: "400px" }}>
                                 <div className="nav-item dropdown">
                                     <Link to="#" className="nav-link" data-toggle="dropdown">Мъже <i className="fa fa-angle-down float-right mt-1"></i></Link>
                                     <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
@@ -146,17 +154,25 @@ const NavMenu = () => {
                                 <div className="nav-item dropdown">
                                     <Link to="#" className="nav-link" data-toggle="dropdown">Бебета момчета <i className="fa fa-angle-down float-right mt-1"></i></Link>
                                     <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                        <Link to="" className="dropdown-item">Men's Dresses</Link>
-                                        <Link to="" className="dropdown-item">Women's Dresses</Link>
-                                        <Link to="" className="dropdown-item">Baby's Dresses</Link>
+                                        {
+                                            babyBoyCategories
+                                                .map(x =>
+                                                    <Link to="" key={x.id} className="dropdown-item">{x.name}
+                                                    </Link>
+                                                )
+                                        }
                                     </div>
                                 </div>
                                 <div className="nav-item dropdown">
                                     <Link to="#" className="nav-link" data-toggle="dropdown">Бебета момичета <i className="fa fa-angle-down float-right mt-1"></i></Link>
                                     <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                        <Link to="" className="dropdown-item">Men's Dresses</Link>
-                                        <Link to="" className="dropdown-item">Women's Dresses</Link>
-                                        <Link to="" className="dropdown-item">Baby's Dresses</Link>
+                                    {
+                                            babyGirlCategories
+                                                .map(x =>
+                                                    <Link to="" key={x.id} className="dropdown-item">{x.name}
+                                                    </Link>
+                                                )
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -228,65 +244,6 @@ const NavMenu = () => {
                                     <span className="carousel-control-next-icon mb-n2"></span>
                                 </div>
                             </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="container-fluid pt-5">
-                <div className="row px-xl-5 pb-3">
-                    <div className="col-lg-4 col-md-6 pb-1">
-                        <div className="cat-item d-flex flex-column border mb-4" style={{ padding: "30px" }}>
-                            <p className="text-right">15 Products</p>
-                            <Link to="" className="cat-img position-relative overflow-hidden mb-3">
-                                <img className="img-fluid" src="img/cat-1.jpg" alt="" />
-                            </Link>
-                            <h5 className="font-weight-semi-bold m-0">Men's dresses</h5>
-                        </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 pb-1">
-                        <div className="cat-item d-flex flex-column border mb-4" style={{ padding: "30px" }}>
-                            <p className="text-right">15 Products</p>
-                            <Link to="" className="cat-img position-relative overflow-hidden mb-3">
-                                <img className="img-fluid" src="img/cat-2.jpg" alt="" />
-                            </Link>
-                            <h5 className="font-weight-semi-bold m-0">Women's dresses</h5>
-                        </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 pb-1">
-                        <div className="cat-item d-flex flex-column border mb-4" style={{ padding: "30px" }}>
-                            <p className="text-right">15 Products</p>
-                            <Link to="" className="cat-img position-relative overflow-hidden mb-3">
-                                <img className="img-fluid" src="img/cat-3.jpg" alt="" />
-                            </Link>
-                            <h5 className="font-weight-semi-bold m-0">Baby's dresses</h5>
-                        </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 pb-1">
-                        <div className="cat-item d-flex flex-column border mb-4" style={{ padding: "30px" }}>
-                            <p className="text-right">15 Products</p>
-                            <Link to="" className="cat-img position-relative overflow-hidden mb-3">
-                                <img className="img-fluid" src="img/cat-4.jpg" alt="" />
-                            </Link>
-                            <h5 className="font-weight-semi-bold m-0">Accerssories</h5>
-                        </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 pb-1">
-                        <div className="cat-item d-flex flex-column border mb-4" style={{ padding: "30px" }}>
-                            <p className="text-right">15 Products</p>
-                            <Link to="" className="cat-img position-relative overflow-hidden mb-3">
-                                <img className="img-fluid" src="img/cat-5.jpg" alt="" />
-                            </Link>
-                            <h5 className="font-weight-semi-bold m-0">Bags</h5>
-                        </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 pb-1">
-                        <div className="cat-item d-flex flex-column border mb-4" style={{ padding: "30px" }}>
-                            <p className="text-right">15 Products</p>
-                            <Link to="" className="cat-img position-relative overflow-hidden mb-3">
-                                <img className="img-fluid" src="img/cat-6.jpg" alt="" />
-                            </Link>
-                            <h5 className="font-weight-semi-bold m-0">Shoes</h5>
                         </div>
                     </div>
                 </div>
