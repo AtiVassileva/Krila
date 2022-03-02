@@ -2,70 +2,67 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <div id="footer">
-            <div className="footer-widget">
-                <div className="container">
+        <div className="container-fluid bg-secondary text-dark mt-5 pt-5">
+            <div className="row px-xl-5 pt-5">
+                <div className="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+                    <Link to="/" className="text-decoration-none">
+                        <h1 className="mb-4 display-5 font-weight-semi-bold"><span className="text-primary font-weight-bold border border-white px-3 mr-1">K</span>RILA</h1>
+                    </Link>
+                    <p>Dolore erat dolor sit lorem vero amet. Sed sit lorem magna, ipsum no sit erat lorem et magna ipsum dolore amet erat.</p>
+                    <p className="mb-2"><i className="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
+                    <p className="mb-2"><i className="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
+                    <p className="mb-0"><i className="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+                </div>
+                <div className="col-lg-8 col-md-12">
                     <div className="row">
-                        <div className="col-md-3">
-                            <div className="text-widget">
-                                <div className="wid-title">KRILA</div>
-                                <p>
-                                    Крила е онлайн магазин с оригинални и актуални за времето стоки на достъпна цена. <Link to="">Пазарувай сега</Link>
-                                </p>
-                                <ul className="ft-soc clearfix">
-                                    <li><Link to=""><i className="fa fa-facebook-square"></i></Link></li>
-                                    <li><Link to=""><i className="fa fa-twitter"></i></Link></li>
-                                    <li><Link to=""><i className="fa fa-google-plus-square"></i></Link></li>
-                                    <li><Link to=""><i className="fa fa-instagram"></i></Link></li>
-                                    <li><Link to=""><i className="fa fa-pinterest"></i></Link></li>
-                                </ul>
-                                <div className="clearfix"></div>
+                        <div className="col-md-4 mb-5">
+                            <h5 className="font-weight-bold text-dark mb-4">Quick Links</h5>
+                            <div className="d-flex flex-column justify-content-start">
+                                <a className="text-dark mb-2" href="index.html"><i className="fa fa-angle-right mr-2"></i>Home</a>
+                                <a className="text-dark mb-2" href="shop.html"><i className="fa fa-angle-right mr-2"></i>Our Shop</a>
+                                <a className="text-dark mb-2" href="detail.html"><i className="fa fa-angle-right mr-2"></i>Shop Detail</a>
+                                <a className="text-dark mb-2" href="cart.html"><i className="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+                                <a className="text-dark mb-2" href="checkout.html"><i className="fa fa-angle-right mr-2"></i>Checkout</a>
+                                <a className="text-dark" href="contact.html"><i className="fa fa-angle-right mr-2"></i>Contact Us</a>
                             </div>
                         </div>
-                        <div className="col-md-2">
-                            <div className="quick-links">
-                                <div className="wid-title">Бързи линкове</div>
-                                <ul>
-                                    <li><Link to="/men">Мъже</Link></li>
-                                    <li><Link to="/women">Жени</Link></li>
-                                    <li><Link to="/kids">Деца</Link></li>
-                                    <li><Link to="/about">За нас</Link></li>
-                                    <li><Link to="/contacts">Контакти</Link></li>
-                                    <li><Link to="/faq">Често задавани въпроси</Link></li>
-                                </ul>
+                        <div className="col-md-4 mb-5">
+                            <h5 className="font-weight-bold text-dark mb-4">Quick Links</h5>
+                            <div className="d-flex flex-column justify-content-start">
+                                <a className="text-dark mb-2" href="index.html"><i className="fa fa-angle-right mr-2"></i>Home</a>
+                                <a className="text-dark mb-2" href="shop.html"><i className="fa fa-angle-right mr-2"></i>Our Shop</a>
+                                <a className="text-dark mb-2" href="detail.html"><i className="fa fa-angle-right mr-2"></i>Shop Detail</a>
+                                <a className="text-dark mb-2" href="cart.html"><i className="fa fa-angle-right mr-2"></i>Shopping Cart</a>
+                                <a className="text-dark mb-2" href="checkout.html"><i className="fa fa-angle-right mr-2"></i>Checkout</a>
+                                <a className="text-dark" href="contact.html"><i className="fa fa-angle-right mr-2"></i>Contact Us</a>
                             </div>
                         </div>
-                        <div className="col-md-2">
-                            <div className="term">
-                                <div className="wid-title">&nbsp;</div>
-                                <p>
-                                    <Link to="#">Доставка</Link><br />
-                                    <Link to="#">Условия за ползване</Link><br />
-                                    <Link to="#">Връщане и замяна</Link><br />
-                                    <Link to="#">Legal Desclaimer</Link><br />
-                                </p>
-                            </div>
-                        </div>
-                        <div className="col-md-3">
-                            <div className="subscribe">
-                                <div className="wid-title">Бюлетин</div>
-                                <p>
-                                    Абонирайте се за нашия бюлетин, за да не пропускате нови оферти.
-                                </p>
-                                <form>
-                                    <div className="form-group">
-                                        <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Вашият имейл" />
-                                    </div>
-                                    <button type="submit" className="btn btn-default">Абонирай се</button>
-                                </form>
-                            </div>
+                        <div className="col-md-4 mb-5">
+                            <h5 className="font-weight-bold text-dark mb-4">Нашият бюлетин</h5>
+                            <form action="">
+                                <div className="form-group">
+                                    <input type="email" className="form-control border-0 py-4" placeholder="Вашият имейл"
+                                        required="required" />
+                                </div>
+                                <div>
+                                    <button className="btn btn-primary btn-block border-0 py-3" type="submit">Абонирай се</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="footer-text">
-                <div className="container">
-                    <p>Copyright 2018. Designed and Developed by <Link to="https://bootstrapmart.com/">BootstrapMart </Link> &amp; Distributed by <Link to="https://themewagon.com/">ThemeWagon</Link></p>
+            <div className="row border-top border-light mx-xl-5 py-4">
+                <div className="col-md-6 px-xl-0">
+                    <p className="mb-md-0 text-center text-md-left text-dark">
+                        &copy; <Link className="text-dark font-weight-semi-bold" to="/">KRILA</Link>. All Rights Reserved. Designed
+                        by
+                        <Link className="text-dark font-weight-semi-bold" to="https://htmlcodex.com">HTML Codex</Link><br/>
+                            Distributed By <Link to="https://themewagon.com" target="_blank">ThemeWagon</Link>
+                    </p>
+                </div>
+                <div className="col-md-6 px-xl-0 text-center text-md-right">
+                    <img className="img-fluid" src="img/payments.png" alt="" />
                 </div>
             </div>
         </div>

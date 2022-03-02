@@ -88,16 +88,16 @@ namespace Krila.WebAPI.Infrastructure
             var dbContext = serviceProvider
                 .GetRequiredService<ApplicationDbContext>();
 
-            //if (dbContext.Categories.Any())
-            //{
-            //    return;
-            //}
+            if (dbContext.Categories.Any())
+            {
+                return;
+            }
 
-            //SeedManCategories(dbContext);
-            //SeedWomanCategories(dbContext);
+            SeedManCategories(dbContext);
+            SeedWomanCategories(dbContext);
 
-            // SeedBoyCategories(dbContext);
-            //SeedGirlCategories(dbContext);
+            SeedBoyCategories(dbContext);
+            SeedGirlCategories(dbContext);
 
             SeedBabyBoyCategories(dbContext);
             SeedBabyGirlCategories(dbContext);

@@ -1,11 +1,11 @@
 import Slider from './Slider/Slider';
-import Main from './Content/Main';
+import Newest from './Content/Newest';
 
 const Home = () => {
   return (
     <>
       <Slider/>
-      <Main />
+      <Newest/>
     </>
   );
 }
