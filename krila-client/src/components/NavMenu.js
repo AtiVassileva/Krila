@@ -103,78 +103,7 @@ const NavMenu = () => {
                         </a>
                         <nav className="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
                             <div className="navbar-nav w-100" style={{ height: "400px" }}>
-                                <div className="nav-item dropdown">
-                                    <Link to="#" className="nav-link" data-toggle="dropdown">Мъже <i className="fa fa-angle-down float-right mt-1"></i></Link>
-                                    <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                        {
-                                            menCategories
-                                                .map(x =>
-                                                    <Link to="" key={x.id} className="dropdown-item">{x.name}
-                                                    </Link>
-                                                )
-                                        }
-                                    </div>
-                                </div>
-                                <div className="nav-item dropdown">
-                                    <Link to="#" className="nav-link" data-toggle="dropdown">Жени <i className="fa fa-angle-down float-right mt-1"></i></Link>
-                                    <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                        {
-                                            womenCategories
-                                                .map(x =>
-                                                    <Link to="" key={x.id} className="dropdown-item">{x.name}
-                                                    </Link>
-                                                )
-                                        }
-                                    </div>
-                                </div>
-                                <div className="nav-item dropdown">
-                                    <Link to="#" className="nav-link" data-toggle="dropdown">Момчета <i className="fa fa-angle-down float-right mt-1"></i></Link>
-                                    <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                        {
-                                            boysCategories
-                                                .map(x =>
-                                                    <Link to="" key={x.id} className="dropdown-item">{x.name}
-                                                    </Link>
-                                                )
-                                        }
-                                    </div>
-                                </div>
-                                <div className="nav-item dropdown">
-                                    <Link to="#" className="nav-link" data-toggle="dropdown">Момичета <i className="fa fa-angle-down float-right mt-1"></i></Link>
-                                    <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                        {
-                                            girlsCategories
-                                                .map(x =>
-                                                    <Link to="" key={x.id} className="dropdown-item">{x.name}
-                                                    </Link>
-                                                )
-                                        }
-                                    </div>
-                                </div>
-                                <div className="nav-item dropdown">
-                                    <Link to="#" className="nav-link" data-toggle="dropdown">Бебета момчета <i className="fa fa-angle-down float-right mt-1"></i></Link>
-                                    <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                        {
-                                            babyBoyCategories
-                                                .map(x =>
-                                                    <Link to="" key={x.id} className="dropdown-item">{x.name}
-                                                    </Link>
-                                                )
-                                        }
-                                    </div>
-                                </div>
-                                <div className="nav-item dropdown">
-                                    <Link to="#" className="nav-link" data-toggle="dropdown">Бебета момичета <i className="fa fa-angle-down float-right mt-1"></i></Link>
-                                    <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                    {
-                                            babyGirlCategories
-                                                .map(x =>
-                                                    <Link to="" key={x.id} className="dropdown-item">{x.name}
-                                                    </Link>
-                                                )
-                                        }
-                                    </div>
-                                </div>
+                             
                             </div>
                         </nav>
                     </div>
